@@ -1,17 +1,14 @@
 # web-clone
 
-    SCSS, JS를 사용하여 특정 웹사이트를 클론코딩
+    프론트엔드 개발자를 준비하며 SCSS, JS를 사용하여 웹사이트를 클론코딩하였습니다.
+
+## criteria
+
+    실험적이면서 모던한 디자인적 요소가 있으며 인터랙티브한 사이트들을 선정하였습니다.
 
 ## To Clone:
 
-- [x] [https://besthorrorscenes.com/](https://besthorrorscenes.com/)
-- [x] [https://paint-box.com/](https://paint-box.com/)
-- [x] [http://10x19.co/](http://10x19.co/)
-- [x] [http://www.z-o-o.fr/](http://www.z-o-o.fr/)
-- [x] [https://schwartzmedia.com.au/](https://schwartzmedia.com.au/)
-- [x] [https://tolv.dk/](https://tolv.dk/)
-- [x] [https://rodicdavidson.co.uk/](https://rodicdavidson.co.uk/)
-- [x] [https://beige.de/](https://beige.de/)
-- [x] [http://donicaida.com/](http://donicaida.com/)
-- [x] [https://canalstreet.market/](https://canalstreet.market/)
-- [x] [https://wonhundred.com/](https://wonhundred.com/)
+- [ ] [http://10x19.co/](http://10x19.co/)
+- [ ] [https://tolv.dk/](https://tolv.dk/)
+- [ ] [https://canalstreet.market/](https://canalstreet.market/)
+- [ ] [https://wonhundred.com/](https://wonhundred.com/)

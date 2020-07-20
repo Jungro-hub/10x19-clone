@@ -1,1 +1,67 @@
 @import "_variables";
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: $mainColor;
+  color: $mainColor;
+  font-size: 20px;
+}
+
+.grid-wrap {
+  height: 100%;
+  display: grid;
+  gap: 0.8px;
+  grid-template-columns: 1fr 1.25fr 1fr;
+  grid-template-rows: 1fr repeat(5, 2fr) 1fr;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bgColor;
+  }
+
+  .home path {
+    fill: $mainColor;
+  }
+  .menu {
+    &:hover {
+      background-color: $mainColor;
+      color: $bgColor;
+    }
+  }
+  .number {
+    transition: 0.2s;
+    &:hover {
+      background-color: $mainColor;
+      color: $bgColor;
+    }
+  }
+
+  .center-image {
+    grid-column: 2 / 2;
+    grid-row: 2 / 7;
+  }
+  .subtitle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    span {
+      text-transform: uppercase;
+      position: absolute;
+      left: 0px;
+      white-space: nowrap;
+      animation: scrollText 10s infinite linear;
+    }
+  }
+}
+
+@keyframes scrollText {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-51.4%);
+  }
+}

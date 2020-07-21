@@ -6,26 +6,44 @@ body {
   background-color: $mainColor;
   color: $mainColor;
   font-size: 20px;
+  overflow-x: hidden;
 }
 
 .grid-wrap {
+  position: fixed;
+  width: 100%;
   height: 100%;
   display: grid;
   gap: 0.8px;
   grid-template-columns: 1fr 1.25fr 1fr;
   grid-template-rows: 1fr repeat(5, 2fr) 1fr;
+  > a {
+    text-decoration: none;
+    color: inherit;
+  }
   div {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: $bgColor;
   }
 
-  .home svg {
+  .home svg path {
     // invert color when menu clicked
     // mix-blend-mode: difference;
     fill: $mainColor;
+    transition: 0.2s;
     z-index: 5;
+  }
+  .home {
+    cursor: pointer;
+    &:hover {
+      background-color: $mainColor;
+    }
+    &:hover svg path {
+      fill: $bgColor;
+    }
   }
   .menu {
     &:hover {
@@ -53,14 +71,14 @@ body {
         position: absolute;
         bottom: -300%;
         opacity: 0;
-        transition: all 1.3s ease-out 0.3s;
+        transition: all 0.8s ease-out 0.3s;
       }
       ul {
         line-height: 170%;
         position: absolute;
         bottom: -300%;
         opacity: 0;
-        transition: all 1.3s ease-out 0.3s;
+        transition: all 0.8s ease-out 0.3s;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -114,14 +132,55 @@ body {
       }
     }
     .toggleBtn {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
       z-index: 3;
     }
   }
   .number {
+    cursor: pointer;
     transition: 0.2s;
     &:hover {
       background-color: $mainColor;
       color: $bgColor;
+    }
+  }
+  .left-side {
+    grid-row: 2/7;
+    overflow: hidden;
+    place-items: center center;
+    position: relative;
+    ul {
+      transform: rotate(-90deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      position: absolute;
+      right: -100%;
+
+      li {
+        height: 30vw;
+      }
+    }
+  }
+  .right-side {
+    grid-row: 2/7;
+    overflow: hidden;
+    position: relative;
+    ul {
+      transform: rotate(90deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      position: absolute;
+      left: -100%;
+      li {
+        height: 30vw;
+      }
     }
   }
 
@@ -129,22 +188,39 @@ body {
     grid-column: 2 / 2;
     grid-row: 2 / 7;
     height: 100%;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+    position: relative;
+    background-color: rgba($color: #000000, $alpha: 0);
   }
   .subtitle {
     position: relative;
     display: flex;
     align-items: center;
     overflow: hidden;
-    span {
+    .scrollText {
       text-transform: uppercase;
       position: absolute;
       left: 0px;
       white-space: nowrap;
       animation: scrollText 10s infinite linear;
+    }
+  }
+}
+.center-image-box {
+  z-index: -5;
+  width: 100%;
+
+  .center-image__list {
+    width: 38%;
+    line-height: 0;
+    padding-top: 8.4vh;
+    margin-left: 30.46%;
+    margin-bottom: 3.5%;
+    li {
+      width: 100%;
+      img {
+        cursor: pointer;
+        width: 100%;
+      }
     }
   }
 }

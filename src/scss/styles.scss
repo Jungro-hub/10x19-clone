@@ -21,13 +21,100 @@ body {
     background-color: $bgColor;
   }
 
-  .home path {
+  .home svg {
+    // invert color when menu clicked
+    // mix-blend-mode: difference;
     fill: $mainColor;
+    z-index: 5;
   }
   .menu {
     &:hover {
       background-color: $mainColor;
       color: $bgColor;
+    }
+    .menu-box {
+      width: 20%;
+      height: 5px;
+      background-color: $mainColor;
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transition: all 0.5s ease-in-out;
+      display: flex;
+      flex-direction: column;
+
+      .description {
+        font-size: 20px;
+        width: 35%;
+        line-height: 170%;
+        text-align: center;
+        margin-bottom: 100px;
+        position: absolute;
+        bottom: -300%;
+        opacity: 0;
+        transition: all 1.3s ease-out 0.3s;
+      }
+      ul {
+        line-height: 170%;
+        position: absolute;
+        bottom: -300%;
+        opacity: 0;
+        transition: all 1.3s ease-out 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a {
+          color: inherit;
+          text-decoration: none;
+          li {
+            text-align: center;
+            display: inline;
+            border-bottom: 1.5px solid $bgColor;
+            transition: 0.2s;
+          }
+          &:hover li {
+            border-bottom: 1.5px solid $mainColor;
+          }
+        }
+      }
+    }
+    #toggleBtn {
+      display: none;
+      &:checked ~ .menu-box {
+        z-index: 2;
+        width: 100vw;
+        height: 100vh;
+      }
+      &:checked ~ .toggleBtn span {
+        display: none;
+      }
+      &:checked ~ .menu-box .description {
+        opacity: 1;
+        bottom: 60%;
+      }
+      &:checked ~ .menu-box ul {
+        opacity: 1;
+        bottom: 20%;
+      }
+
+      &:checked ~ .toggleBtn {
+        &:after {
+          content: "CLOSE";
+        }
+        &:hover {
+          color: black;
+        }
+      }
+
+      &:not(:checked) ~ .menu-box {
+        z-index: -1;
+        width: 20%;
+        height: 5px;
+      }
+    }
+    .toggleBtn {
+      z-index: 3;
     }
   }
   .number {
@@ -41,6 +128,11 @@ body {
   .center-image {
     grid-column: 2 / 2;
     grid-row: 2 / 7;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
   .subtitle {
     position: relative;
